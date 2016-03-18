@@ -7,7 +7,7 @@
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register --recursive",
     "build": "babel --optional runtime -d dist/ app/",
     "start": "node entrypoint.js",
-    "postinstall": "npm run migrate && npm run test-migrate",
+    "postinstall": "npm run migrate",
     "migrate": "knex migrate:latest",
     "test-migrate": "NODE_ENV=test knex migrate:latest"
   },
