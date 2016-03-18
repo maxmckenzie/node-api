@@ -1,0 +1,19 @@
+{
+  "name": "node-api",
+  "version": "0.1.0",
+  "description": "An ultra-lightwight API framework using Express.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/joelove/node-api.git"
+  },
+  "author": "Joe Love",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joelove/node-api/issues"
+  },
+  "homepage": "https://github.com/joelove/node-api#readme"
+}
