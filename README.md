@@ -25,6 +25,14 @@ cp .envrc.example .envrc
 
 Only applicable if you're using Postgres. Pgcli is a fully-featured (and generally better) alterative for the `psql` command shipped with Postgres. Highly recommended.
 
+### Setup
+
+The project requires a little set up:
+
+```
+npm install
+```
+
 ### Running the tests
 
 This project is tested using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/) and [Sinon](http://sinonjs.org/).
