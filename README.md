@@ -52,7 +52,7 @@ Only applicable if you're using Postgres. Pgcli is a fully-featured (and general
 
 #### Frameworks
 
-This project uses several frameworks that you'll need to be familiar with before you can understand it in its entirety.
+This project uses several frameworks that you'll need to be familiar with before you can understand it fully.
 
 ##### Knex.js
 
@@ -81,7 +81,7 @@ This project is tested using [Mocha](https://mochajs.org/), [Chai](http://chaijs
 Once, before you run the tests, you'll need to build the test database:
 
 ```
-npm run test-migrate
+NODE_ENV=test npm run migrate
 ```
 
 To run the tests, use:
@@ -104,4 +104,12 @@ On non-production environments, this will start the server with ES6/7 being tran
 
 ```
 npm start
+```
+
+### Linting the code
+
+To ensure code quality and consistency, this application is linted using ESLint (AirBnB config). All code should satisfy the linter before being merged.
+
+```
+npm run lint
 ```
