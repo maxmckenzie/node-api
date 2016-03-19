@@ -3,7 +3,7 @@ import Promise from 'bluebird';
 
 import app from '../app';
 import Bookshelf from '../app/database';
-import { seed } from './seeds/seed';
+import seed from './seeds/seed';
 
 const knex = Bookshelf.knex;
 
