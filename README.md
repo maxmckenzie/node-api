@@ -100,7 +100,7 @@ npm run build
 
 ### Running the server
 
-On non-production environments, this will start the server with ES6/7 being transpiled on-the-fly via a require hook. For performance reasons, in production you'll need to build the application before starting it.
+Whilst the node environment is set to `development`, the server will run with ES6/7 being transpiled on-the-fly via a require hook. For performance reasons, on non-development environments you'll need to build the application before starting it.
 
 ```
 npm start
