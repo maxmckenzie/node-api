@@ -1,7 +1,7 @@
 # node-api
 ## An ultra-lightweight API framework using Express
 
-### Pre-requsites
+### Prerequisites
 
 #### Postgres
 
