@@ -8,4 +8,4 @@ export default (req, res) => {
     .then(() => {
       res.send('Hello world!');
     });
-}
+};

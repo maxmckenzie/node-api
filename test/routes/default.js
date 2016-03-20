@@ -2,9 +2,6 @@ import { expect } from 'chai';
 import supertest from 'supertest';
 
 import app from '../setup';
-import defaultRoute from '../../app/routes/default';
-
-import Factory from '../factories';
 import Sample from '../../app/models/Sample';
 
 const server = supertest(app.listen());
@@ -24,7 +21,7 @@ context('GET /', () => {
     request.send().end((error, response) => {
       expect(response.text).to.equal('Hello world!');
       done();
-    })
+    });
   });
 
   it('increments the sample count in the database', done => {
@@ -34,5 +31,5 @@ context('GET /', () => {
         done();
       }).catch(done);
     });
-  })
+  });
 });
