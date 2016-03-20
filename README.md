@@ -106,9 +106,9 @@ Whilst the node environment is set to `development`, the server will run with ES
 npm start
 ```
 
-### Linting the code
+### Coding standards
 
-To ensure code quality and consistency, this application is linted using [ESLint](http://eslint.org/) (with the AirBnB preset). All code should satisfy the linter before being merged.
+To ensure code quality and consistency, this application is linted using [ESLint](http://eslint.org/) (using the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)). All code should satisfy the linter before being merged.
 
 ```
 npm run lint
