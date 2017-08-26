@@ -115,3 +115,99 @@ npm run lint
 ```
 
 You will probably want to set up your code editor to run ESLint automatically. If you're using Sublime Text you can use [SublimeLinter](http://sublimelinter.readthedocs.org/en/latest/installation.html). Once you have that installed, you should install the [ESLint plugin](https://github.com/roadhump/SublimeLinter-contrib-eslint_d).
+
+## Snippets
+### Creating a Migration
+http://perkframework.com/v1/guides/database-migrations-knex.html
+
+`knex migrate:make migration_name`
+
+add to file
+```js
+exports.up = (knex, Promise) => {
+  return knex.schema.createTable('reports', (t) => {
+    t.increments('id').unsigned().primary()
+    t.string('baseDomain').notNull()
+    t.string('partnerID').notNull()
+    t.string('timestamp').notNull()
+    t.string('configType').notNull()
+    t.string('configStatus').notNull()
+    t.json('difference').nullable()
+    t.json('originalConfig').nullable()
+    t.json('currentConfig').nullable()
+    t.text('deltaHTML').nullable()
+  })
+}
+
+exports.down = (knex, Promise) => {
+  return knex.schema.dropTable('reports')
+}
+```
+
+run migration `knex migrate:latest`
+rollback migration `knex migrate:rollback`
+
+# Creating a Model
+
+create a new file `/database/models/table-name.js`
+
+add the model and any relation
+
+```js
+import Bookshelf from '../database'
+
+const Report = Bookshelf.Model.extend({
+  tableName: 'reports',
+  virtuals: {
+    __type: () => 'Report'
+  }
+})
+
+export default Bookshelf.model('Report', Report)
+```
+
+# Creating records
+```js
+import Report from './database/models/reports'
+
+const reporter = (report) => {
+  new Report({
+    baseDomain: 'sting',
+    partnerID: 'sting',
+    timestamp: 'sting',
+    configType: 'sting',
+    configStatus: 'sting',
+    difference: '{"json": "data"}',
+    currentConfig: '{"json": "data"}',
+    originalConfig: '{"json": "data"}',
+    deltaHTML: 'sting'
+  }).save().then((model) => {
+    console.log('report saved')
+  })
+}
+
+export default reporter
+```
+
+You can then call it with a standard module import
+
+```js
+import reporter from './reporter'
+
+reporter('report')
+```
+
+Remeber To add the below to your `.envrc`
+
+export DATABASE_URL="postgres://$USER:@localhost:5432/db-name"
+export TEST_DATABASE_URL="postgres://$USER:@localhost:5432/db-name-test"
+
+# Fetching from upstream
+
+```bash
+git fetch upstream
+git checkout master
+git stash
+git merge upstream/master
+git stash pop
+```
